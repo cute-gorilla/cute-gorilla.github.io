@@ -1,3 +1,5 @@
+import SeoulTime from "./SeoulTime.jsx";
+
 export default function Footer() {
   return (
     <footer className="footer">
@@ -30,7 +32,7 @@ export default function Footer() {
         </div>
         <div className="footer__bottom">
           <span>© 2026 Minhyeok Oh — All material self-published</span>
-          <span>Seoul</span>
+          <span>Seoul · <SeoulTime /></span>
         </div>
       </div>
     </footer>

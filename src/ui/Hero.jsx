@@ -1,4 +1,5 @@
 import HeroText from "./HeroText.jsx";
+import SeoulTime from "./SeoulTime.jsx";
 
 export default function Hero() {
   return (
@@ -10,7 +11,7 @@ export default function Hero() {
         <div className="hero__meta">
           <span>Research</span>
           <span>Writing</span>
-          <span>Updated Apr 2026</span>
+          <span><SeoulTime /></span>
         </div>
       </div>
 
