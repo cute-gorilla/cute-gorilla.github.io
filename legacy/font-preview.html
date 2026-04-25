@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Font preview</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Manrope:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500&family=Cormorant+Garamond:wght@500;700&family=Sora:wght@400;500;600&family=Spectral:wght@400;500;700&family=Space+Grotesk:wght@400;500&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&family=DM+Serif+Display&family=DM+Sans:wght@400;500&family=Italiana&family=Lora:wght@400;500;600&family=Source+Sans+3:wght@400;500&family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg:        #eef6fb;
+      --bg-elev:   #ffffff;
+      --text:      #0f2a3b;
+      --text-mute: #5d7686;
+      --border:    #c6d8e3;
+      --accent:    #2d96c4;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 2rem;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+      min-height: 100vh;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+    @media (max-width: 1100px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+    .card {
+      background: var(--bg-elev);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2rem 2.25rem;
+      position: relative;
+    }
+    .card__label {
+      position: absolute;
+      top: 0.9rem;
+      right: 1.1rem;
+      font-family: ui-monospace, monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .eyebrow {
+      font-family: ui-monospace, monospace;
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0 0 0.75rem;
+    }
+    .title {
+      font-size: 3.4rem;
+      line-height: 0.95;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+      font-weight: 500;
+    }
+    .title em {
+      font-style: italic;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .lede {
+      font-size: 1rem;
+      color: var(--text-mute);
+      line-height: 1.6;
+      margin: 1rem 0 0;
+    }
+    .lede em {
+      color: var(--text);
+      font-style: italic;
+    }
+    h1.section-h {
+      font-size: 1.6rem;
+      margin: 1.5rem 0 0.4rem;
+      letter-spacing: -0.01em;
+      font-weight: 500;
+    }
+    .post {
+      font-size: 0.92rem;
+      color: var(--text-mute);
+      margin: 0;
+    }
+
+    /* Option A — Playfair Display + Manrope */
+    .opt-a .title,
+    .opt-a .section-h { font-family: "Playfair Display", serif; }
+    .opt-a .lede,
+    .opt-a .post     { font-family: "Manrope", sans-serif; }
+
+    /* Option B — Instrument Serif + Geist */
+    .opt-b .title,
+    .opt-b .section-h { font-family: "Instrument Serif", serif; font-weight: 400; }
+    .opt-b .lede,
+    .opt-b .post     { font-family: "Geist", sans-serif; }
+
+    /* Option C — Cormorant Garamond + Sora */
+    .opt-c .title,
+    .opt-c .section-h { font-family: "Cormorant Garamond", serif; font-weight: 500; }
+    .opt-c .lede,
+    .opt-c .post     { font-family: "Sora", sans-serif; }
+
+    /* Option D — Spectral + Space Grotesk */
+    .opt-d .title,
+    .opt-d .section-h { font-family: "Spectral", serif; font-weight: 500; }
+    .opt-d .lede,
+    .opt-d .post     { font-family: "Space Grotesk", sans-serif; }
+
+    /* Option E — Original (Fraunces + Inter) */
+    .opt-e .title,
+    .opt-e .section-h { font-family: "Fraunces", serif; font-weight: 500; }
+    .opt-e .lede,
+    .opt-e .post     { font-family: "Inter", sans-serif; }
+
+    /* Option F — DM Serif Display + DM Sans (matched, dramatic) */
+    .opt-f .title,
+    .opt-f .section-h { font-family: "DM Serif Display", serif; font-weight: 400; }
+    .opt-f .lede,
+    .opt-f .post     { font-family: "DM Sans", sans-serif; }
+
+    /* Option G — Italiana + Manrope (super slim elegant) */
+    .opt-g .title,
+    .opt-g .section-h { font-family: "Italiana", serif; font-weight: 400; }
+    .opt-g .lede,
+    .opt-g .post     { font-family: "Manrope", sans-serif; }
+    .opt-g .title    { font-size: 4rem; letter-spacing: -0.01em; }
+
+    /* Option H — Lora + Source Sans 3 (warm bookish) */
+    .opt-h .title,
+    .opt-h .section-h { font-family: "Lora", serif; font-weight: 500; }
+    .opt-h .lede,
+    .opt-h .post     { font-family: "Source Sans 3", sans-serif; }
+
+    /* Option I — Bodoni Moda + Manrope (high-fashion contrast) */
+    .opt-i .title,
+    .opt-i .section-h { font-family: "Bodoni Moda", serif; font-weight: 500; }
+    .opt-i .lede,
+    .opt-i .post     { font-family: "Manrope", sans-serif; }
+
+    .header {
+      max-width: 1400px;
+      margin: 0 auto 1.5rem;
+      font-family: ui-monospace, monospace;
+      font-size: 0.85rem;
+      color: var(--text-mute);
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    Compare 4 font pairings — same content, different typography. Pick the one that feels right.
+  </div>
+
+  <div class="grid">
+
+    <!-- A -->
+    <article class="card opt-a">
+      <span class="card__label">A · Playfair + Manrope</span>
+      <p class="eyebrow">Researcher · Writer · Maker</p>
+      <h1 class="title">Minhyeok <em>Oh.</em></h1>
+      <p class="lede">
+        Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+        I read, write, and make things while I figure them out.
+      </p>
+      <h1 class="section-h">Research &amp; Projects</h1>
+      <p class="post">A short body paragraph. The way it reads is what matters — not the headline.</p>
+    </article>
+
+    <!-- B -->
+    <article class="card opt-b">
+      <span class="card__label">B · Instrument Serif + Geist</span>
+      <p class="eyebrow">Researcher · Writer · Maker</p>
+      <h1 class="title">Minhyeok <em>Oh.</em></h1>
+      <p class="lede">
+        Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+        I read, write, and make things while I figure them out.
+      </p>
+      <h1 class="section-h">Research &amp; Projects</h1>
+      <p class="post">A short body paragraph. The way it reads is what matters — not the headline.</p>
+    </article>
+
+    <!-- C -->
+    <article class="card opt-c">
+      <span class="card__label">C · Cormorant + Sora</span>
+      <p class="eyebrow">Researcher · Writer · Maker</p>
+      <h1 class="title">Minhyeok <em>Oh.</em></h1>
+      <p class="lede">
+        Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+        I read, write, and make things while I figure them out.
+      </p>
+      <h1 class="section-h">Research &amp; Projects</h1>
+      <p class="post">A short body paragraph. The way it reads is what matters — not the headline.</p>
+    </article>
+
+    <!-- D -->
+    <article class="card opt-d">
+      <span class="card__label">D · Spectral + Space Grotesk</span>
+      <p class="eyebrow">Researcher · Writer · Maker</p>
+      <h1 class="title">Minhyeok <em>Oh.</em></h1>
+      <p class="lede">
+        Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+        I read, write, and make things while I figure them out.
+      </p>
+      <h1 class="section-h">Research &amp; Projects</h1>
+      <p class="post">A short body paragraph. The way it reads is what matters — not the headline.</p>
+    </article>
+
+    <!-- E (original) -->
+    <article class="card opt-e">
+      <span class="card__label">E · Fraunces + Inter (current)</span>
+      <p class="eyebrow">Researcher · Writer · Maker</p>
+      <h1 class="title">Minhyeok <em>Oh.</em></h1>
+      <p class="lede">
+        Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+        I read, write, and make things while I figure them out.
+      </p>
+      <h1 class="section-h">Research &amp; Projects</h1>
+      <p class="post">A short body paragraph. The way it reads is what matters — not the headline.</p>
+    </article>
+
+    <!-- F -->
+    <article class="card opt-f">
+      <span class="card__label">F · DM Serif Display + DM Sans</span>
+      <p class="eyebrow">Researcher · Writer · Maker</p>
+      <h1 class="title">Minhyeok <em>Oh.</em></h1>
+      <p class="lede">
+        Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+        I read, write, and make things while I figure them out.
+      </p>
+      <h1 class="section-h">Research &amp; Projects</h1>
+      <p class="post">A short body paragraph. The way it reads is what matters — not the headline.</p>
+    </article>
+
+    <!-- G -->
+    <article class="card opt-g">
+      <span class="card__label">G · Italiana + Manrope</span>
+      <p class="eyebrow">Researcher · Writer · Maker</p>
+      <h1 class="title">Minhyeok <em>Oh.</em></h1>
+      <p class="lede">
+        Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+        I read, write, and make things while I figure them out.
+      </p>
+      <h1 class="section-h">Research &amp; Projects</h1>
+      <p class="post">A short body paragraph. The way it reads is what matters — not the headline.</p>
+    </article>
+
+    <!-- H -->
+    <article class="card opt-h">
+      <span class="card__label">H · Lora + Source Sans 3</span>
+      <p class="eyebrow">Researcher · Writer · Maker</p>
+      <h1 class="title">Minhyeok <em>Oh.</em></h1>
+      <p class="lede">
+        Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+        I read, write, and make things while I figure them out.
+      </p>
+      <h1 class="section-h">Research &amp; Projects</h1>
+      <p class="post">A short body paragraph. The way it reads is what matters — not the headline.</p>
+    </article>
+
+    <!-- I -->
+    <article class="card opt-i">
+      <span class="card__label">I · Bodoni Moda + Manrope</span>
+      <p class="eyebrow">Researcher · Writer · Maker</p>
+      <h1 class="title">Minhyeok <em>Oh.</em></h1>
+      <p class="lede">
+        Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+        I read, write, and make things while I figure them out.
+      </p>
+      <h1 class="section-h">Research &amp; Projects</h1>
+      <p class="post">A short body paragraph. The way it reads is what matters — not the headline.</p>
+    </article>
+
+  </div>
+</body>
+</html>

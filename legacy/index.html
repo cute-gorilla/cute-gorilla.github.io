@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minhyeok Oh — Researcher</title>
+  <meta name="description" content="Personal site of Minhyeok Oh — researcher, writer, maker." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="nav">
+    <a href="#top" class="nav__brand">M.O.</a>
+    <ul class="nav__links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#writing">Writing</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+    </ul>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <span class="theme-toggle__icon theme-toggle__icon--sun">☀</span>
+      <span class="theme-toggle__icon theme-toggle__icon--moon">☾</span>
+    </button>
+  </nav>
+
+  <!-- Hero — afternoon room: light pours in as you scroll -->
+  <header class="hero" id="top">
+    <div class="hero__sticky">
+      <!-- LEFT: real 3D anime room (Three.js) -->
+      <div class="hero__scene">
+        <canvas class="hero__webgl" aria-hidden="true"></canvas>
+      </div>
+
+      <!-- RIGHT: text panel (dark controlled backdrop) -->
+      <div class="hero__panel">
+        <div class="hero__inner">
+          <p class="hero__eyebrow">
+            <span class="hero__status"></span>
+            Researcher · Writer · Maker
+          </p>
+          <h1 class="hero__title">
+            <span class="hero__title-line">Minhyeok</span>
+            <span class="hero__title-line hero__title-line--accent">Oh.</span>
+          </h1>
+          <p class="hero__lede">
+            Exploring <em>ideas at the edge of</em> — placeholder field of interest.
+            I read, write, and make things while I figure them out.
+          </p>
+          <div class="hero__cta">
+            <a href="#research" class="btn btn--primary">See my work</a>
+            <a href="#writing" class="btn btn--ghost">Read the blog</a>
+          </div>
+        </div>
+
+        <div class="hero__scroll" aria-hidden="true">
+          <span>scroll</span>
+          <span class="hero__scroll-line"></span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="section__head reveal">
+        <span class="section__num">01</span>
+        <h2 class="section__title">About</h2>
+      </div>
+      <div class="about reveal">
+        <div class="about__text">
+          <p>
+            I'm a student-researcher based in Seoul. My work sits at the
+            intersection of <em>placeholder topic A</em> and
+            <em>placeholder topic B</em> — I'm drawn to questions that don't
+            have clean answers yet.
+          </p>
+          <p>
+            When I'm not reading or writing, I make small things on the side:
+            essays, sketches, half-finished side projects. This site is where
+            I keep them in one place.
+          </p>
+          <p class="about__meta">
+            <span>Currently</span> reading X · writing Y · learning Z
+          </p>
+        </div>
+        <aside class="about__card">
+          <div class="about__photo" aria-hidden="true">
+            <span>photo</span>
+          </div>
+          <ul class="about__list">
+            <li><span>Based in</span><span>Seoul, KR</span></li>
+            <li><span>Studying</span><span>placeholder field</span></li>
+            <li><span>Email</span><span>you@example.com</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Research / Projects -->
+    <section class="section" id="research">
+      <div class="section__head reveal">
+        <span class="section__num">02</span>
+        <h2 class="section__title">Research &amp; Projects</h2>
+        <a href="projects.html" class="section__more">All projects →</a>
+      </div>
+      <div class="cards reveal">
+        <article class="card">
+          <div class="card__year">2026</div>
+          <h3 class="card__title">Project Aurora</h3>
+          <p class="card__desc">
+            A short description of what this project is and why it matters.
+            Replace this with your real work.
+          </p>
+          <ul class="card__tags">
+            <li>research</li><li>writing</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card__year">2025</div>
+          <h3 class="card__title">Reading the Margins</h3>
+          <p class="card__desc">
+            A second placeholder card. Each card can link out to a detail page,
+            an essay, a paper, or an external link.
+          </p>
+          <ul class="card__tags">
+            <li>essay</li><li>literature</li>
+          </ul>
+        </article>
+        <article class="card">
+          <div class="card__year">2025</div>
+          <h3 class="card__title">Side Project Three</h3>
+          <p class="card__desc">
+            Use the third card for a side experiment, a tool, or a creative
+            project that doesn't quite fit the other two categories.
+          </p>
+          <ul class="card__tags">
+            <li>code</li><li>experiment</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Writing -->
+    <section class="section" id="writing">
+      <div class="section__head reveal">
+        <span class="section__num">03</span>
+        <h2 class="section__title">Writing</h2>
+        <a href="blog.html" class="section__more">All posts →</a>
+      </div>
+      <ul class="posts reveal">
+        <li class="post">
+          <span class="post__date">Apr 2026</span>
+          <a class="post__title" href="#">Notes on a placeholder essay</a>
+          <p class="post__excerpt">A first sentence that previews what the post is about — short enough to skim, long enough to tempt.</p>
+        </li>
+        <li class="post">
+          <span class="post__date">Mar 2026</span>
+          <a class="post__title" href="#">A second post title goes here</a>
+          <p class="post__excerpt">Replace these with real entries as you publish them. The list grows as you do.</p>
+        </li>
+        <li class="post">
+          <span class="post__date">Feb 2026</span>
+          <a class="post__title" href="#">Something I learned this month</a>
+          <p class="post__excerpt">Short reflections, longer essays, half-formed thoughts — anything goes here.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" id="gallery">
+      <div class="section__head reveal">
+        <span class="section__num">04</span>
+        <h2 class="section__title">Gallery</h2>
+        <a href="gallery.html" class="section__more">Full gallery →</a>
+      </div>
+      <div class="gallery reveal">
+        <figure class="gallery__item gallery__item--tall"><span>01</span></figure>
+        <figure class="gallery__item"><span>02</span></figure>
+        <figure class="gallery__item"><span>03</span></figure>
+        <figure class="gallery__item gallery__item--wide"><span>04</span></figure>
+        <figure class="gallery__item"><span>05</span></figure>
+        <figure class="gallery__item"><span>06</span></figure>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section section--contact" id="contact">
+      <div class="contact reveal">
+        <h2 class="contact__title">Let's talk.</h2>
+        <p class="contact__lede">
+          I read every email. If you'd like to share work, ask a question, or
+          just say hi — the inbox is open.
+        </p>
+        <a class="btn btn--primary btn--large" href="mailto:you@example.com">Say hello →</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <span>© 2026 Minhyeok Oh</span>
+      <ul class="footer__links">
+        <li><a href="https://github.com/cute-gorilla">GitHub</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Three.js UMD build (works from file://, no module CORS issue) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+  <script src="room-shader.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
